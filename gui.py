@@ -141,6 +141,10 @@ class App(tk.Tk):
         self.figure_canvas.draw()
 
 
+def test_placeholder():
+    pass
+
+
 if __name__ == '__main__':
     app = App()
     app.mainloop()
