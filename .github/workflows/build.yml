@@ -9,7 +9,28 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ['windows-latest', 'ubuntu-latest', 'macos-latest']
+        include:
+          - os: macos-latest
+            TARGET: macos
+            CMD_BUILD: >
+              pyinstaller -F -w -n priceComparison -i resources/priceComparison.icns gui.py &&
+              cd dist/ &&
+              zip -r9 priceComparison priceComparison.app/
+            OUT_FILE_NAME: priceComparison.zip
+            # dont know what that does
+            # ASSET_MIME: application/zip
+          - os: windows-latest
+            TARGET: windows
+            CMD_BUILD: pyinstaller -F -w -n priceComparison -i resources/priceComparison.ico gui.py
+            OUT_FILE_NAME: priceComparison.exe
+            # dont know what that does
+            #ASSET_MIME: application/vnd.microsoft.portable-executable
+          - os: ubuntu-latest
+            TARGET: linux
+            CMD_BUILD: pyinstaller -F -w -n priceComparison -i resources/priceComparison.ico gui.py
+            OUT_FILE_NAME: priceComparison.deb
+            # dont know what that does
+            #ASSET_MIME: application/vnd.microsoft.portable-executable
 
     steps:
     - uses: actions/checkout@v3
