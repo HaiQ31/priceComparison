@@ -16,9 +16,9 @@ jobs:
         python-version: 3.7
 
     - run: pip install -r requirements.txt pyinstaller
-    - run: pyinstaller your-code.py
+    - run: pyinstaller gui.py
     # Optionally verify that it works (provided that it does not need user interaction)
-    - run: ./dist/your-code/your-code
+    - run: ./dist/gui/gui
     - uses: actions/upload-artifact@v2
       with:
         path: dist/*
