@@ -44,4 +44,4 @@ jobs:
     # - run: ./dist/gui
     - uses: actions/upload-artifact@v3
       with:
-        path: dist/{{ matrix.OUT_FILE_NAME }}
+        path: dist/${{ matrix.OUT_FILE_NAME }}
