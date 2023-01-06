@@ -1,6 +1,5 @@
-# inspired here: https://data-dive.com/multi-os-deployment-in-cloud-using-pyinstaller-and-github-actions
-
 name: Build
+# inspired here: https://data-dive.com/multi-os-deployment-in-cloud-using-pyinstaller-and-github-actions
 
 on:
   push:
@@ -62,16 +61,16 @@ jobs:
             #ASSET_MIME:
     steps:
     - uses: actions/checkout@v3
-    #- name: Set up Python 3.11
-    - uses: actions/setup-python@v3
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v3
       with:
         python-version: 3.11
-    #- name: Install dependencies
-    - run: pip install -r requirements.txt pyinstaller
-    #- name: build with pyinstaller for ${{ matrix.TARGET }}
-    - run: ${{ matrix.CMD_BUILD }}
-#    - name: Load Release URL File from release job
-    - uses: actions/download-artifact@v3
+    - name: Install dependencies
+      run: pip install -r requirements.txt pyinstaller
+    - name: build with pyinstaller for ${{ matrix.TARGET }}
+      run: ${{ matrix.CMD_BUILD }}
+    - name: Load Release URL File from release job
+      uses: actions/download-artifact@v3
       with:
         name: release_url
         path: release_url #should maintain same behaviour as for v1
