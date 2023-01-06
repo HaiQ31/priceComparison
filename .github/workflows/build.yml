@@ -64,13 +64,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.11
-    - uses: actions/setup-python@v3
+      uses: actions/setup-python@v3
       with:
         python-version: 3.11
     - name: Install dependencies
-    - run: pip install -r requirements.txt pyinstaller
+      run: pip install -r requirements.txt pyinstaller
     - name: build with pyinstaller for ${{ matrix.TARGET }}
-    - run: ${{ matrix.CMD_BUILD }}
+      run: ${{ matrix.CMD_BUILD }}
     # Optionally verify that it works (provided that it does not need user interaction)
     # - run: ./dist/gui
     - name: Load Release URL File from release job
