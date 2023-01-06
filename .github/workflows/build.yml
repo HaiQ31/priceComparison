@@ -70,7 +70,6 @@ jobs:
       run: pip install -r requirements.txt pyinstaller
     - name: build with pyinstaller for ${{ matrix.TARGET }}
       run: ${{ matrix.CMD_BUILD }}
-
     - name: Load Release URL File from release job
       uses: actions/download-artifact@v3
       with:
