@@ -71,8 +71,8 @@ jobs:
       run: pip install -r requirements.txt pyinstaller
     - name: build with pyinstaller for ${{ matrix.TARGET }}
       run: ${{ matrix.CMD_BUILD }}
-    # Optionally verify that it works (provided that it does not need user interaction)
-    # - run: ./dist/gui
+      # Optionally verify that it works (provided that it does not need user interaction)
+      # - run: ./dist/gui
     - name: Load Release URL File from release job
       uses: actions/download-artifact@v3
       with:
