@@ -74,7 +74,7 @@ jobs:
     # Optionally verify that it works (provided that it does not need user interaction)
     # - run: ./dist/gui
     - name: Load Release URL File from release job
-    - uses: actions/download-artifcat@v3
+      uses: actions/download-artifcat@v3
       with:
         name: release_url
     - name: Get Release File Name & Upload URL
