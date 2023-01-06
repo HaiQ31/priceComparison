@@ -73,7 +73,8 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: release_url
-        path: release_url #should maintain same behaviour as for v1
+        path: release_url
+        #should maintain same behaviour as for v1
     - name: Get Release File Name & Upload URL
       id: get_release_info
       shell: bash
